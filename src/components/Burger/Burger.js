@@ -3,11 +3,17 @@ import './Burger.css';
 import BurgerIngredient from './BurgerIngredient/BurgerIngredient';
 
 export default function Burger(props) {
+  const transformedIngredients = Object.keys(props.ingredients)
+    .map(eachKey => {
+      return [...Array(props.ingredients[eachKey])].map((_, i) => {
+        return <BurgerIngredient key={eachKey + i} type={eachKey} />
+      })
+    })
+
   return (
     <div className='Burger'>
       <BurgerIngredient type='bread-top' />
-      <BurgerIngredient type='cheese' />
-      <BurgerIngredient type='meat' />
+      {transformedIngredients}
       <BurgerIngredient type='bread-bottom' />
 
     </div>
