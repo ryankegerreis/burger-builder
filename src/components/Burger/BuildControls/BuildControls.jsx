@@ -13,6 +13,7 @@ const controls = [
 export default function buildControls(props) {
   return (
     <div className={classes.BuildControls}>
+      <p>Current Price: <string>{props.price.toFixed(2)}</string></p>
       {controls.map(ctrl => (
         <BuildControl
           key={ctrl.label}
